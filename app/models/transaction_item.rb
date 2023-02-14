@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class TransactionItem < ApplicationRecord
   belongs_to :user
   has_many :category_transaction_items
@@ -7,7 +5,11 @@ class TransactionItem < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
-  def self.total_amount
-    sum(:amount)
+  def self.total_user_amount(_user_id)
+    where(:user_id).sum(:amount)
+  end
+
+  def self.total_category_amount(_category_id, _user_id)
+    where(:category_id, :user_id).sum(:amount)
   end
 end
