@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TransactionItem < ApplicationRecord
   belongs_to :user
   has_many :category_transaction_items
