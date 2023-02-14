@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   root to: 'home#index'
-  resources :categories, only: [:index]
-  resources :transaction_items, only: [:index]
+  resources :categories, only: [:index, :new, :create] do
+  resources :transaction_items, only: [:index, :new, :create, :show]
+  end
 end
