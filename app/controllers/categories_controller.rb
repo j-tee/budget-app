@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @categories = Category.all.where(user_id: current_user.id)
+    @categories = Category.all.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   def new
