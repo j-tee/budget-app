@@ -6,16 +6,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application","styles", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <header>
-      <%if current_user%>
+  <body class="app-bg">
+    <header class="py-3 mb-4 border-bottom header-nav-bg">
+      <div class="container d-flex flex-wrap justify-content-center">
+          <span class="fs-4"><%= current_controller_text %></span>
+      </div>
+      <% if current_user %>
       <%= render 'layouts/shared/navbar' %>
-      <%end%>
-    </header>
+      <% end %>
+    </header>    
     <% if not flash.empty? %>
       <% if flash[:notice] %>
       <div class="alert alert-info" role="alert"><%= notice %></div>
