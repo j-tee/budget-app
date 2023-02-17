@@ -11,7 +11,7 @@ AllCops:
   DisplayCopNames: true
 
 Layout/LineLength:
-  Max: 130
+  Max: 150
 Lint/ShadowedArgument:
   Enabled: false
 Metrics/MethodLength:

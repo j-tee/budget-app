@@ -24,7 +24,7 @@ class TransactionItemsController < ApplicationController
       category_transaction.transaction_item_id = @transaction_item.id
       if category_transaction.save
         @category.total_amount = CategoryTransactionItem.total_category_amount(@category.id)
-        if @category.update(total_amount:@category.total_amount)
+        if @category.update(total_amount: @category.total_amount)
           flash[:notice] =
             "Transaction created successfully! \\n Total amount for #{@category.name} category updated"
         else
@@ -34,7 +34,7 @@ class TransactionItemsController < ApplicationController
       redirect_to categories_path
     else
       flash[:alert] = @transaction_item.errors.full_messages.join(', ')
-      redirect_to new_transaction_item_path, locals: { transaction_item: @transaction_item }
+      redirect_to new_category_transaction_item_path, locals: { transaction_item: @transaction_item }
     end
   end
 
