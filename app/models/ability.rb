@@ -2,9 +2,10 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can %i[indec], Category
-    can %i[index], TransactionItem
-    can %i[delete destroy], Category, user_id: user.id
-    can %i[delete destroy], TransactionItem, user_id: user.id
+    if user.present?
+      can :manage, :all
+    else
+      cannot :manage, :all
+    end
   end
 end
