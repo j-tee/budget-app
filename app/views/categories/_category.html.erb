@@ -1,6 +1,6 @@
 <tr>
     <th scope="row">#<%= category.id %></th>
     <td><%= category.icon %></td>
-    <td><%= category.total_amount %></td>
-    <td><%= link_to category.name, category_transaction_items_path(category.id), method: :get, class:"nav-link" %></td>
+    <td class="amount"><%= category.total_amount %></td>
+    <td class="name"><%= link_to category.name, category_transaction_items_path(category.id), method: :get, class:"nav-link" %></td>
 </tr>

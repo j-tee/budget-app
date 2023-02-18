@@ -1,5 +1,5 @@
 class TransactionItem < ApplicationRecord
-  belongs_to :user
+  belongs_to :author, class_name: "User"
   has_many :category_transaction_items
   has_many :categories, through: :category_transaction_items
   validates :name, presence: true, length: { maximum: 50 }

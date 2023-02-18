@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_14_105222) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_18_055312) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,12 +34,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_105222) do
   end
 
   create_table "transaction_items", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "author_id", null: false
     t.string "name"
     t.decimal "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_transaction_items_on_user_id"
+    t.index ["author_id"], name: "index_transaction_items_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,5 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_105222) do
   add_foreign_key "categories", "users"
   add_foreign_key "category_transaction_items", "categories"
   add_foreign_key "category_transaction_items", "transaction_items"
-  add_foreign_key "transaction_items", "users"
+  add_foreign_key "transaction_items", "users", column: "author_id"
+  add_foreign_key "transaction_items", "users", column: "author_id"
 end

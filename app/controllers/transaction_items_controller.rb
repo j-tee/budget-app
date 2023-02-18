@@ -16,7 +16,7 @@ class TransactionItemsController < ApplicationController
     @category = Category.find(params[:category_id])
     @user = current_user
     @transaction_item = TransactionItem.new(params.require(:new_transaction_item).permit(:name, :amount))
-    @transaction_item.user = @user
+    @transaction_item.author = @user
     if @transaction_item.save
       flash[:notice] = 'Transaction created successfully!'
       category_transaction = CategoryTransactionItem.new
@@ -34,7 +34,7 @@ class TransactionItemsController < ApplicationController
       redirect_to categories_path
     else
       flash[:alert] = @transaction_item.errors.full_messages.join(', ')
-      redirect_to new_category_transaction_item_path, locals: { transaction_item: @transaction_item }
+      redirect_to  new_category_transaction_item_path, locals: { transaction_item: @transaction_item }
     end
   end
 
