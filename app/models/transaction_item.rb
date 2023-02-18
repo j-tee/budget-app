@@ -6,6 +6,6 @@ class TransactionItem < ApplicationRecord
   validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
   def self.total_user_amount(user_id)
-    where(user_id:).sum(:amount)
+    where(author_id: user_id).sum(:amount)
   end
 end

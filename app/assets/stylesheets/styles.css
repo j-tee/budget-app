@@ -3,6 +3,18 @@
   background-color: #3778c2;
 }
 
+.btn-container {
+  position: fixed;
+  bottom: 0;
+  width: 95%;
+}
+
+.btn-success {
+  height: 8rem;
+  width: 100%;
+  font-size: 2rem;
+}
+
 .amount {
   font-size: 1.5rem;
   font-weight: 700;
