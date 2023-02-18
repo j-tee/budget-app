@@ -5,14 +5,14 @@
 
 .btn-container {
   position: fixed;
-    bottom: 0;
-    width: 95%;
+  bottom: 0;
+  width: 95%;
 }
 
 .btn-success {
   height: 8rem;
-    width: 100%;
-    font-size: 2rem;
+  width: 100%;
+  font-size: 2rem;
 }
 
 .amount {
