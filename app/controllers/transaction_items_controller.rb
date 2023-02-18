@@ -34,7 +34,7 @@ class TransactionItemsController < ApplicationController
       redirect_to categories_path
     else
       flash[:alert] = @transaction_item.errors.full_messages.join(', ')
-      redirect_to  new_category_transaction_item_path, locals: { transaction_item: @transaction_item }
+      redirect_to new_category_transaction_item_path, locals: { transaction_item: @transaction_item }
     end
   end
 
